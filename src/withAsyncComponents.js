@@ -35,7 +35,7 @@ type Result = {
   STATE_IDENTIFIER? : string,
 }
 
-export default function withAsyncComponents(app : React$Element) : Promise<Result> {
+export default function withAsyncComponents(app : React$Element, store) : Promise<Result> {
   const execContext = createExecContext()
 
   const isBrowser = typeof window !== 'undefined'
@@ -65,7 +65,7 @@ export default function withAsyncComponents(app : React$Element) : Promise<Resul
         && typeof instance.getAsyncComponentData === 'function'
         && !skipRoot
       ) {
-        const { id, defer, getResolver } = instance.getAsyncComponentData()
+        const { id, defer, getResolver } = instance.getAsyncComponentData(store)
 
         if (rehydrateState) {
           if (!rehydrateState.resolved[id]) {

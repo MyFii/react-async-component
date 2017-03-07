@@ -30,8 +30,8 @@ function createAsyncComponent(args) {
       : x
   )
 
-  const getResolver = () => {
-    const resolver = resolve()
+  const getResolver = (store) => {
+    const resolver = resolve(store)
     if (!isPromise(resolver)) {
       throw new Error('The "resolve" function on an AsyncComponent should return a Promise')
     }
@@ -58,11 +58,11 @@ function createAsyncComponent(args) {
       if (Component) {
         this.state = { Component }
       } else {
-        this.getAsyncComponentData = () => ({
+        this.getAsyncComponentData = store => ({
           id,
           defer: ssrMode === 'defer'
             || (asyncComponentsAncestor && asyncComponentsAncestor.isBoundary),
-          getResolver: () => this.resolveComponent(),
+          getResolver: () => this.resolveComponent(store),
         })
       }
     }
@@ -84,8 +84,8 @@ function createAsyncComponent(args) {
       }
     }
 
-    resolveComponent() {
-      return getResolver().then((Component) => {
+    resolveComponent(store) {
+      return getResolver(store).then((Component) => {
         if (this.unmounted) {
           // The component is unmounted, so no need to set the state.
           return

@@ -1,0 +1,99 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AsyncComponent.childContextTypes.asyncComponentsAncestor	src/createAsyncComponent.js	/^  AsyncComponent.childContextTypes = {$/;"	p
+AsyncComponent.contextTypes.asyncComponents	src/createAsyncComponent.js	/^  AsyncComponent.contextTypes = {$/;"	p
+AsyncComponentProvider.childContextTypes.asyncComponents	src/AsyncComponentProvider.js	/^AsyncComponentProvider.childContextTypes = {$/;"	p
+AsyncComponentProvider.propTypes.children	src/AsyncComponentProvider.js	/^AsyncComponentProvider.propTypes = {$/;"	p
+Bob.defaultProps.children	src/__tests__/integration.test.js	/^Bob.defaultProps = { children: null }$/;"	p
+Bob.propTypes.children	src/__tests__/integration.test.js	/^Bob.propTypes = { children: React.PropTypes.node }$/;"	p
+app-root-dir	package.json	/^    "app-root-dir": "1.0.2",$/;"	f
+author	package.json	/^  "author": "Sean Matheson <sean@ctrlplusb.com>",$/;"	f
+babel-cli	package.json	/^    "babel-cli": "6.22.2",$/;"	f
+babel-core	package.json	/^    "babel-core": "6.22.1",$/;"	f
+babel-eslint	package.json	/^    "babel-eslint": "7.1.1",$/;"	f
+babel-jest	package.json	/^    "babel-jest": "18.0.0",$/;"	f
+babel-loader	package.json	/^    "babel-loader": "6.2.10",$/;"	f
+babel-polyfill	package.json	/^    "babel-polyfill": "6.22.0",$/;"	f
+babel-preset-env	package.json	/^    "babel-preset-env": "1.1.8",$/;"	f
+babel-preset-latest	package.json	/^    "babel-preset-latest": "6.22.0",$/;"	f
+babel-preset-react	package.json	/^    "babel-preset-react": "6.22.0",$/;"	f
+babel-preset-stage-3	package.json	/^    "babel-preset-stage-3": "6.22.0",$/;"	f
+babel-register	package.json	/^    "babel-register": "6.22.0",$/;"	f
+build	package.json	/^    "build": "babel-node .\/tools\/scripts\/build.js",$/;"	f
+check	package.json	/^    "check": "yarn run lint && yarn run test",$/;"	f
+clean	package.json	/^    "clean": "rimraf .\/commonjs && rimraf .\/umd && rimraf .\/coverage && rimraf .\/flow-coverage && rimraf .\/umd",$/;"	f
+codecov	package.json	/^    "codecov": "1.0.1",$/;"	f
+collectCoverageFrom	package.json	/^    "collectCoverageFrom": [$/;"	f
+config	package.json	/^  "config": {$/;"	f
+cross-env	package.json	/^    "cross-env": "3.1.4",$/;"	f
+dependencies	package.json	/^  "dependencies": {$/;"	f
+description	package.json	/^  "description": "Create Components that resolve asynchronously, with support for server side rendering and code splitting.",$/;"	f
+devDependencies	package.json	/^  "devDependencies": {$/;"	f
+enzyme	package.json	/^    "enzyme": "2.7.1",$/;"	f
+enzyme-to-json	package.json	/^    "enzyme-to-json": "1.4.5",$/;"	f
+eslint	package.json	/^    "eslint": "3.15.0",$/;"	f
+eslint-config-airbnb	package.json	/^    "eslint-config-airbnb": "14.1.0",$/;"	f
+eslint-plugin-flowtype	package.json	/^    "eslint-plugin-flowtype": "2.30.0",$/;"	f
+eslint-plugin-import	package.json	/^    "eslint-plugin-import": "2.2.0",$/;"	f
+eslint-plugin-jsx-a11y	package.json	/^    "eslint-plugin-jsx-a11y": "4.0.0",$/;"	f
+eslint-plugin-react	package.json	/^    "eslint-plugin-react": "6.9.0",$/;"	f
+example:web	package.json	/^    "example:web": "echo 'Make sure to `cd example\/web && yarn install`' && cd example\/web && yarn run start",$/;"	f
+export.asyncComponents	src/types.js	/^export type ProviderChildContext = {$/;"	p
+export.getNextId	src/types.js	/^export type ExecContext = {$/;"	p
+files	package.json	/^  "files": [$/;"	f
+flow	package.json	/^    "flow": "babel-node .\/tools\/scripts\/flow",$/;"	f
+flow-bin	package.json	/^    "flow-bin": "0.39.0",$/;"	f
+flow-coverage-report	package.json	/^    "flow-coverage-report": "0.3.0",$/;"	f
+flow-typed	package.json	/^    "flow-typed": "2.0.0",$/;"	f
+flow:coverage	package.json	/^    "flow:coverage": "flow-coverage-report -i 'src\/**\/*.js' -t html -t json -t text",$/;"	f
+flow:defs	package.json	/^    "flow:defs": "flow-typed install --overwrite",$/;"	f
+from.target	tools/webpack/configFactory.js	/^type Args = {$/;"	p
+ghooks	package.json	/^    "ghooks": "2.0.0",$/;"	f
+ghooks	package.json	/^    "ghooks": {$/;"	f
+gzip-size	package.json	/^    "gzip-size": "3.0.0",$/;"	f
+homepage	package.json	/^  "homepage": "https:\/\/github.com\/ctrlplusb\/react-async-component#readme",$/;"	f
+import.exports	tools/webpack/umd-min.config.babel.js	/^\/* @flow *\/$/;"	f
+import.exports	tools/webpack/umd.config.babel.js	/^\/* @flow *\/$/;"	f
+in-publish	package.json	/^    "in-publish": "2.0.0",$/;"	f
+jest	package.json	/^    "jest": "18.1.0",$/;"	f
+jest	package.json	/^  "jest": {$/;"	f
+keywords	package.json	/^  "keywords": [$/;"	f
+license	package.json	/^  "license": "MIT",$/;"	f
+lint	package.json	/^    "lint": "eslint src",$/;"	f
+main	package.json	/^  "main": "commonjs\/index.js",$/;"	f
+name	package.json	/^  "name": "react-async-component",$/;"	f
+peerDependencies	package.json	/^  "peerDependencies": {$/;"	f
+pre-commit	package.json	/^      "pre-commit": "yarn run check"$/;"	f
+prepublish	package.json	/^    "prepublish": "yarn run build",$/;"	f
+pretty-bytes	package.json	/^    "pretty-bytes": "4.0.2",$/;"	f
+ramda	package.json	/^    "ramda": "0.23.0",$/;"	f
+react	package.json	/^    "react": "15.4.2",$/;"	f
+react	package.json	/^    "react": "^0.14.0 || ^15.0.0-0",$/;"	f
+react-addons-test-utils	package.json	/^    "react-addons-test-utils": "15.4.2",$/;"	f
+react-dom	package.json	/^    "react-dom": "15.4.2",$/;"	f
+react-dom	package.json	/^    "react-dom": "^0.14.0 || ^15.0.0-0"$/;"	f
+react-tree-walker	package.json	/^    "react-tree-walker": "^1.0.0"$/;"	f
+readline-sync	package.json	/^    "readline-sync": "1.4.6",$/;"	f
+repository	package.json	/^  "repository": {$/;"	f
+rimraf	package.json	/^    "rimraf": "2.5.4",$/;"	f
+scripts	package.json	/^  "scripts": {$/;"	f
+sinon	package.json	/^    "sinon": "1.17.7",$/;"	f
+snapshotSerializers	package.json	/^    "snapshotSerializers": [$/;"	f
+test	package.json	/^    "test": "jest",$/;"	f
+test:coverage	package.json	/^    "test:coverage": "yarn run test -- --coverage",$/;"	f
+test:coverage:deploy	package.json	/^    "test:coverage:deploy": "yarn run test:coverage && codecov"$/;"	f
+testPathIgnorePatterns	package.json	/^    "testPathIgnorePatterns": [$/;"	f
+type	package.json	/^    "type": "git",$/;"	f
+type.appWithAsyncComponents	src/withAsyncComponents.js	/^type Result = {$/;"	p
+umdConfigFactory	tools/webpack/umd.config.babel.js	/^module.exports = function umdConfigFactory(options : Object, args : Object = {}) {$/;"	f
+umdMinConfigFactory	tools/webpack/umd-min.config.babel.js	/^module.exports = function umdMinConfigFactory(options : Object, args : Object = {}) {$/;"	f
+url	package.json	/^    "url": "https:\/\/github.com\/ctrlplusb\/react-async-component.git"$/;"	f
+version	package.json	/^  "version": "0.2.2",$/;"	f
+webpack	package.json	/^    "webpack": "2.2.1",$/;"	f
+webpack-dev-middleware	package.json	/^    "webpack-dev-middleware": "1.10.0",$/;"	f
+webpack-hot-middleware	package.json	/^    "webpack-hot-middleware": "2.16.1"$/;"	f
+webpackConfigFactory	tools/webpack/configFactory.js	/^function webpackConfigFactory({ target } : Args) {$/;"	f
