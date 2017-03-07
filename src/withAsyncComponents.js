@@ -77,7 +77,7 @@ export default function withAsyncComponents(app : React$Element, store) : Promis
           return false
         }
 
-        const resolver = getResolver()
+        const resolver = getResolver(store)
         resolvers.push({
           resolver,
           element,

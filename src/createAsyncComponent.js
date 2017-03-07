@@ -58,11 +58,11 @@ function createAsyncComponent(args) {
       if (Component) {
         this.state = { Component }
       } else {
-        this.getAsyncComponentData = store => ({
+        this.getAsyncComponentData = () => ({
           id,
           defer: ssrMode === 'defer'
             || (asyncComponentsAncestor && asyncComponentsAncestor.isBoundary),
-          getResolver: () => this.resolveComponent(store),
+          getResolver: s => this.resolveComponent(s),
         })
       }
     }
@@ -80,7 +80,7 @@ function createAsyncComponent(args) {
 
     componentDidMount() {
       if (!this.state.Component) {
-        this.resolveComponent(this.props)
+        this.resolveComponent()
       }
     }
 
