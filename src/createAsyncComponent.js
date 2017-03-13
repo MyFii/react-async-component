@@ -115,12 +115,18 @@ function createAsyncComponent(args) {
   }
 
   AsyncComponent.childContextTypes = {
+    store: React.PropTypes.shape({
+      runSaga: React.PropTypes.func.isRequired,
+    }).isRequired,
     asyncComponentsAncestor: React.PropTypes.shape({
       isBoundary: React.PropTypes.bool,
     }),
   }
 
   AsyncComponent.contextTypes = {
+    store: React.PropTypes.shape({
+      runSaga: React.PropTypes.func.isRequired,
+    }).isRequired,
     asyncComponents: React.PropTypes.shape({
       getNextId: React.PropTypes.func.isRequired,
       getComponent: React.PropTypes.func.isRequired,
