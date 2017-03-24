@@ -30,8 +30,8 @@ function createAsyncComponent(args) {
       : x
   )
 
-  const getResolver = (context) => {
-    const resolver = resolve(context)
+  const getResolver = context => props => {
+    const resolver = resolve(context)(props)
     if (!isPromise(resolver)) {
       throw new Error('The "resolve" function on an AsyncComponent should return a Promise')
     }
@@ -85,7 +85,7 @@ function createAsyncComponent(args) {
     }
 
     resolveComponent() {
-      return getResolver(this.context).then((Component) => {
+      return getResolver(this.context)(this.props).then((Component) => {
         if (this.unmounted) {
           // The component is unmounted, so no need to set the state.
           return
