@@ -31,7 +31,7 @@ function createAsyncComponent(args) {
       : x
   )
 
-  const getResolver = context => props => {
+  const getResolver = context => (props) => {
     const resolver = resolve(context)(props)
     if (!isPromise(resolver)) {
       throw new Error('The "resolve" function on an AsyncComponent should return a Promise')
@@ -74,6 +74,7 @@ function createAsyncComponent(args) {
         return undefined
       }
       return {
+        store: this.context.store,
         asyncComponentsAncestor: {
           isBoundary: true,
         },
