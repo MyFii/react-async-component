@@ -7,6 +7,7 @@ const validSSRModes = ['render', 'defer', 'boundary']
 
 function createAsyncComponent(args) {
   const {
+    componentId = () => '',
     name,
     resolve,
     es6Aware = true,
@@ -39,18 +40,19 @@ function createAsyncComponent(args) {
   }
 
   class AsyncComponent extends React.Component {
-    constructor(props, context) {
+    constructor(props) {
       super(props)
-
-      const { asyncComponents, asyncComponentsAncestor } = context
-
       this.state = { Component: null }
+    }
+
+    componentWillReceiveProps(nextProps) {
+      const { asyncComponents, asyncComponentsAncestor } = this.context
+      const { getComponent, getNextId } = asyncComponents
 
       // Assign a unique id to this instance if it hasn't already got one.
       // Note: the closure usage.
-      const { getNextId, getComponent } = asyncComponents
       if (!id) {
-        id = getNextId()
+        id = `${getNextId()}(${componentId(nextProps)})`
       }
 
       // Try resolve the component.
