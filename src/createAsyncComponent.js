@@ -40,19 +40,18 @@ function createAsyncComponent(args) {
   }
 
   class AsyncComponent extends React.Component {
-    constructor(props) {
+    constructor(props, context) {
       super(props)
-      this.state = { Component: null }
-    }
 
-    componentWillReceiveProps(nextProps) {
-      const { asyncComponents, asyncComponentsAncestor } = this.context
+      this.state = { Component: null }
+
+      const { asyncComponents, asyncComponentsAncestor } = context
       const { getComponent, getNextId } = asyncComponents
 
       // Assign a unique id to this instance if it hasn't already got one.
       // Note: the closure usage.
       if (!id) {
-        id = `${getNextId()}(${componentId(nextProps)})`
+        id = `${getNextId()}(${componentId(props)})`
       }
 
       // Try resolve the component.
