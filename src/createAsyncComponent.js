@@ -19,8 +19,6 @@ function createAsyncComponent(args) {
     throw new Error('Invalid ssrMode provided to createAsyncComponent')
   }
 
-  let id = null
-
   // Takes the given module and if it has a ".default" the ".default" will
   // be returned. i.e. handy when you could be dealing with es6 imports.
   const es6Resolve = x => (
@@ -43,16 +41,17 @@ function createAsyncComponent(args) {
     constructor(props, context) {
       super(props)
 
-      this.state = { Component: null }
+      this.state = { Component: null, ComponentId: null }
 
       const { asyncComponents, asyncComponentsAncestor } = context
       const { getComponent, getNextId } = asyncComponents
 
       // Assign a unique id to this instance if it hasn't already got one.
       // Note: the closure usage.
-      if (!id) {
-        id = `${getNextId()}(${componentId(props)})`
-      }
+      // const id = `${getNextId()}(${componentId(props)})`
+      const id = `${name}(${componentId(props)})`
+
+      this.state.ComponentId = id
 
       // Try resolve the component.
       const Component = es6Resolve(getComponent(id))
@@ -92,7 +91,7 @@ function createAsyncComponent(args) {
           // The component is unmounted, so no need to set the state.
           return
         }
-        this.context.asyncComponents.registerComponent(id, Component)
+        this.context.asyncComponents.registerComponent(this.state.ComponentId, Component)
         if (this.setState) {
           this.setState({
             Component: es6Resolve(Component),
