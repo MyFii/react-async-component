@@ -4,6 +4,7 @@ const validSSRModes = ['resolve', 'defer', 'boundary']
 
 function asyncComponent(config) {
   const {
+    componentId = () => '',
     name,
     resolve,
     autoResolveES2015Default = true,
@@ -44,19 +45,20 @@ function asyncComponent(config) {
       ? x.default
       : x
 
-  const getResolver = context => (props) => {
-    if (sharedState.resolver == null) {
-      try {
-        // Wrap whatever the user returns in Promise.resolve to ensure a Promise
-        // is always returned.
-        const resolver = resolve(context)(props)
-        sharedState.resolver = Promise.resolve(resolver)
-      } catch (err) {
-        sharedState.resolver = Promise.reject(err)
+  const getResolver = context =>
+    (props) => {
+      if (sharedState.resolver == null) {
+        try {
+          // Wrap whatever the user returns in Promise.resolve to ensure a Promise
+          // is always returned.
+          const resolver = resolve(context)(props)
+          sharedState.resolver = Promise.resolve(resolver)
+        } catch (err) {
+          sharedState.resolver = Promise.reject(err)
+        }
       }
+      return sharedState.resolver
     }
-    return sharedState.resolver
-  }
 
   class AsyncComponent extends React.Component {
     static displayName = name || 'AsyncComponent';
@@ -92,7 +94,7 @@ function asyncComponent(config) {
       // We can't put it in componentWillMount as RHL hot swaps the new code
       // so the mount call will not happen (but the ctor does).
       if (this.context.asyncComponents && !sharedState.id) {
-        sharedState.id = this.context.asyncComponents.getNextId()
+        sharedState.id = `${name}(${componentId(props)})`
       }
     }
 
@@ -179,6 +181,9 @@ function asyncComponent(config) {
 
     componentWillUnmount() {
       this.unmounted = true
+      sharedState.module = null
+      sharedState.id = null
+      sharedState.resolver = null
     }
 
     registerErrorState(error) {
