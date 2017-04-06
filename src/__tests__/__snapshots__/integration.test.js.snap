@@ -1,4 +1,77 @@
-exports[`integration tests render server and client 1`] = `"<div><div><div><span>In Render.</span></div><div><span>In Boundary but outside an AsyncComponent, server render me!</span></div></div></div>"`;
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`integration tests browser rendering renders the ErrorComponent 1`] = `
+<AsyncComponentProvider
+  asyncContext={
+    Object {
+      "getNextId": [Function],
+      "getState": [Function],
+      "resolved": [Function],
+    }
+  }
+  rehydrateState={
+    Object {
+      "resolved": Object {},
+    }
+  }
+>
+  <AsyncComponent />
+</AsyncComponentProvider>
+`;
+
+exports[`integration tests browser rendering renders the ErrorComponent 2`] = `
+<AsyncComponentProvider
+  asyncContext={
+    Object {
+      "getNextId": [Function],
+      "getState": [Function],
+      "resolved": [Function],
+    }
+  }
+  rehydrateState={
+    Object {
+      "resolved": Object {},
+    }
+  }
+>
+  <AsyncComponent>
+    <ErrorComponent
+      error={[Error: An error occurred]}
+    >
+      <div>
+        An error occurred
+      </div>
+    </ErrorComponent>
+  </AsyncComponent>
+</AsyncComponentProvider>
+`;
+
+exports[`integration tests browser rendering renders the LoadingComponent 1`] = `
+<AsyncComponentProvider
+  asyncContext={
+    Object {
+      "getNextId": [Function],
+      "getState": [Function],
+      "resolved": [Function],
+    }
+  }
+  rehydrateState={
+    Object {
+      "resolved": Object {},
+    }
+  }
+>
+  <AsyncComponent>
+    <LoadingComponent>
+      <div>
+        Loading...
+      </div>
+    </LoadingComponent>
+  </AsyncComponent>
+</AsyncComponentProvider>
+`;
+
+exports[`integration tests render server and client 1`] = `"<div><div><div><span>In Render.</span></div><div>DeferredAsyncBob Loading</div><div><span>In Boundary but outside an AsyncComponent, server render me!</span></div></div></div>"`;
 
 exports[`integration tests render server and client 2`] = `
 Object {
@@ -12,14 +85,19 @@ Object {
 
 exports[`integration tests render server and client 3`] = `
 <AsyncComponentProvider
-  execContext={
+  asyncContext={
     Object {
-      "getComponent": [Function],
       "getNextId": [Function],
-      "getResolved": [Function],
-      "registerComponent": [Function],
+      "getState": [Function],
+      "resolved": [Function],
     }
-  }>
+  }
+  rehydrateState={
+    Object {
+      "resolved": Object {},
+    }
+  }
+>
   <AsyncBob>
     <Bob>
       <div>
@@ -33,7 +111,13 @@ exports[`integration tests render server and client 3`] = `
               </div>
             </Bob>
           </AsyncBobTwo>
-          <DeferredAsyncBob />
+          <DeferredAsyncBob>
+            <LoadingComponent>
+              <div>
+                DeferredAsyncBob Loading
+              </div>
+            </LoadingComponent>
+          </DeferredAsyncBob>
           <BoundaryAsyncBob>
             <Bob>
               <div>
@@ -44,6 +128,7 @@ exports[`integration tests render server and client 3`] = `
               </div>
             </Bob>
           </BoundaryAsyncBob>
+          <ErrorAsyncComponent />
         </div>
       </div>
     </Bob>
@@ -53,14 +138,19 @@ exports[`integration tests render server and client 3`] = `
 
 exports[`integration tests render server and client 4`] = `
 <AsyncComponentProvider
-  execContext={
+  asyncContext={
     Object {
-      "getComponent": [Function],
       "getNextId": [Function],
-      "getResolved": [Function],
-      "registerComponent": [Function],
+      "getState": [Function],
+      "resolved": [Function],
     }
-  }>
+  }
+  rehydrateState={
+    Object {
+      "resolved": Object {},
+    }
+  }
+>
   <AsyncBob>
     <Bob>
       <div>
@@ -101,9 +191,20 @@ exports[`integration tests render server and client 4`] = `
               </div>
             </Bob>
           </BoundaryAsyncBob>
+          <ErrorAsyncComponent>
+            <ErrorComponent
+              error={[Error: This always errors]}
+            >
+              <div>
+                This always errors
+              </div>
+            </ErrorComponent>
+          </ErrorAsyncComponent>
         </div>
       </div>
     </Bob>
   </AsyncBob>
 </AsyncComponentProvider>
 `;
+
+exports[`integration tests server rendering should not render errors 1`] = `""`;

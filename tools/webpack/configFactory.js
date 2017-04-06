@@ -1,15 +1,11 @@
-/* @flow */
+/*  */
 
 import { resolve as resolvePath } from 'path'
 import webpack from 'webpack'
 import appRootDir from 'app-root-dir'
 import { getPackageJson, removeEmpty, ifElse } from '../utils'
 
-type Args = {
-  target: 'umd'|'umd-min',
-};
-
-function webpackConfigFactory({ target } : Args) {
+function webpackConfigFactory({ target }) {
   const libraryName = getPackageJson().name
   const minimize = target === 'umd-min'
 
@@ -22,7 +18,7 @@ function webpackConfigFactory({ target } : Args) {
       filename: target === 'umd'
         ? `${libraryName}.js`
         : `${libraryName}.min.js`,
-      library: libraryName,
+      library: 'ReactAsyncComponent',
       libraryTarget: 'umd',
     },
     externals: {

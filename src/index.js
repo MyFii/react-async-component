@@ -1,9 +1,5 @@
-/* @flow */
+import AsyncComponentProvider from './AsyncComponentProvider'
+import createAsyncContext from './createAsyncContext'
+import asyncComponent from './asyncComponent'
 
-import createAsyncComponent from './createAsyncComponent'
-import withAsyncComponents from './withAsyncComponents'
-
-export {
-  createAsyncComponent,
-  withAsyncComponents,
-}
+export { AsyncComponentProvider, createAsyncContext, asyncComponent }
