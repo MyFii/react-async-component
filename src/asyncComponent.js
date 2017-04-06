@@ -44,12 +44,12 @@ function asyncComponent(config) {
       ? x.default
       : x
 
-  const getResolver = () => {
+  const getResolver = context => (props) => {
     if (sharedState.resolver == null) {
       try {
         // Wrap whatever the user returns in Promise.resolve to ensure a Promise
         // is always returned.
-        const resolver = resolve()
+        const resolver = resolve(context)(props)
         sharedState.resolver = Promise.resolve(resolver)
       } catch (err) {
         sharedState.resolver = Promise.reject(err)
@@ -62,6 +62,9 @@ function asyncComponent(config) {
     static displayName = name || 'AsyncComponent';
 
     static contextTypes = {
+      store: React.PropTypes.shape({
+        runSaga: React.PropTypes.func.isRequired,
+      }).isRequired,
       asyncComponentsAncestor: React.PropTypes.shape({
         isBoundary: React.PropTypes.bool,
       }),
@@ -73,6 +76,9 @@ function asyncComponent(config) {
     };
 
     static childContextTypes = {
+      store: React.PropTypes.shape({
+        runSaga: React.PropTypes.func.isRequired,
+      }).isRequired,
       asyncComponentsAncestor: React.PropTypes.shape({
         isBoundary: React.PropTypes.bool,
       }),
@@ -114,6 +120,7 @@ function asyncComponent(config) {
       }
 
       return {
+        store: this.context.store,
         asyncComponentsAncestor: {
           isBoundary: serverMode === 'boundary',
         },
@@ -136,7 +143,7 @@ function asyncComponent(config) {
     resolveModule() {
       this.resolving = true
 
-      return getResolver()
+      return getResolver(this.context)(this.props)
         .then((module) => {
           if (this.unmounted) {
             return undefined
